@@ -8,7 +8,6 @@ pipeline {
         CREDENTIALS_ID = 'gcp-kubernetes-terraform'
         registry = "frannyoa/frankie_docker_1repo"
         registryCredential = 'frannyoa'
-        registryUrl = 'https://registry.hub.docker.com''
         dockerImage = 'simpleweb'
     }
     stages {
@@ -27,8 +26,8 @@ pipeline {
         stage("Push image") {
             steps {
                 script {
-                    docker.withRegistry(registryUrl, registryCredential ) { 
-                        dockerImage.push()
+                    docker.withRegistry( '', registryCredential ) { 
+                    dockerImage.push()
                     }
                 }
             }
